@@ -20,7 +20,7 @@ const cookie = require('cookie-token')
 
 http.createServer((req, res) => {
   const token = req.headers.authorization.split(' ')[1]
-  res.setHeader('Set-Cookie', cookie('mycookie', token))
+  res.setHeader('Set-Cookie', cookie.serialize(token))
   res.end()
 })
 ```

@@ -1,15 +1,51 @@
+/**
+ * Dependencies
+ */
+
+const jwt = require('jsonwebtoken')
+const cookie = require('cookie')
 
 
 /**
- * Create and serialize a cookie session from a JWT token.
- *
- * @param {String} name
- * @param {String} token
- * @param {Object?} options
- * @param {String?} secret
- * @api public
+ * Expose cookie-token.
  */
 
-module.exports = function (name, token, options, secret = process.env.JWT_SECRET) {
-  // do something
+module.exports = {
+
+  /**
+   * Create and serialize a cookie session from a JWT token.
+   *
+   * @param {String} token
+   * @param {Object?} options
+   * @api public
+   */
+
+  serialize(token. options) {
+    return cookie.serialize(options.name || 'access_token', token, {
+      httpOnly: true,
+      secure: true,
+      ...options
+    })
+  }
+
+
+  /**
+   * Create and serialize a cookie session from a JWT token.
+   *
+   * @param {Object} cookie header
+   * @param {String?} secret
+   * return {Promise}
+   * @api public
+   */
+
+
+  parse(header secret = process.env.JWT_SECRET) {
+    const cookies = cookie.parse(header)
+    return new Promise((resolve, reject) => {
+      jwt.verify(cookies[name], secret, (err, decoded) => {
+        if (err) reject(err)
+        else resolve(decoded)
+      })
+    })
+  }
 }
