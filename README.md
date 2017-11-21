@@ -9,6 +9,7 @@ Create and serialize a cookie from a JWT token:
   - **secure**: the cookie is inaccessible from the client side to prevent cross-site scripting and can only be sent over HTTPS
   - **memory efficient**: cookie is decoded instead of being saved into memory
 
+
 ## Usage
 
 Here's an example to create a cookie from an authorization bearer containing a JWT token.
@@ -19,6 +20,13 @@ const cookie = require('cookie-token')
 
 
 http.createServer((req, res) => {
+
+  // parse cookie
+  cookie.parse(req.headers.cookie).then(payload => {
+    // do something
+  })
+  
+  // create cookie
   const token = req.headers.authorization.split(' ')[1]
   res.setHeader('Set-Cookie', cookie.serialize(token))
   res.end()
@@ -26,7 +34,6 @@ http.createServer((req, res) => {
 ```
 
 Default configuration can be overridden by passing [cookie options](https://github.com/jshttp/cookie) as a third argument.
-
 ## Installation
 
 ```shell
