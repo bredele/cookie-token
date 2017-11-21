@@ -25,7 +25,7 @@ http.createServer((req, res) => {
   cookie.parse(req.headers.cookie).then(payload => {
     // do something
   })
-  
+
   // create cookie
   const token = req.headers.authorization.split(' ')[1]
   res.setHeader('Set-Cookie', cookie.serialize(token))
@@ -33,7 +33,8 @@ http.createServer((req, res) => {
 })
 ```
 
-Default configuration can be overridden by passing [cookie options](https://github.com/jshttp/cookie) as a third argument.
+Default configuration can be overridden by passing [cookie options](https://github.com/jshttp/cookie) as a third argument. MaxAge is not created from the token to allow more control over the cookie expiration date.
+
 ## Installation
 
 ```shell
