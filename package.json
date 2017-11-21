@@ -1,14 +1,14 @@
 {
   "name": "cookie-token",
   "version": "1.0.0",
-  "description": "",
+  "description": "Create, serialize and parse cookie from JWT token",
   "main": "index.js",
   "scripts": {
     "test": "tape test/*.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tether/cookie-token.git"
+    "url": "git+https://github.com/bredele/cookie-token.git"
   },
   "keywords": [
     "tether"
@@ -16,9 +16,9 @@
   "author": "Olivier Wietrich",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/tether/cookie-token/issues"
+    "url": "https://github.com/bredele/cookie-token/issues"
   },
-  "homepage": "https://github.com/tether/cookie-token#readme",
+  "homepage": "https://github.com/bredele/cookie-token#readme",
   "devDependencies": {
     "tape": "*"
   },
