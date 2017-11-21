@@ -1,4 +1,5 @@
 
+
 /**
  * This is a simple description.
  *
@@ -8,5 +9,3 @@
 module.exports = function () {
   // do something
 }
-
-  
