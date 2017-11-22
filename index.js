@@ -21,11 +21,10 @@ module.exports = {
    */
 
   serialize(token, options = {}) {
-    return cookie.serialize(options.name || 'access_token', token, {
+    return cookie.serialize(options.name || 'access_token', token, Object.assign({
       httpOnly: true,
-      secure: true,
-      ...options
-    })
+      secure: true
+    }, options))
   },
 
 
