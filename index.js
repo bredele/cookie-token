@@ -45,10 +45,10 @@ module.exports = {
       const token = cookies[name || 'access_token']
       jwt.verify(token, secret, (err, decoded) => {
         if (err) reject(err)
-        else resolve({
-          ...decoded,
-          _token: token
-        })
+        else {
+          decoded._token = token
+          resolve(decoded)
+        }
       })
     })
   }
