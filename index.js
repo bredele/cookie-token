@@ -42,9 +42,13 @@ module.exports = {
   parse(header, name, secret = process.env.JWT_SECRET) {
     const cookies = cookie.parse(header)
     return new Promise((resolve, reject) => {
-      jwt.verify(cookies[name || 'access_token'], secret, (err, decoded) => {
+      const token = cookies[name || 'access_token']
+      jwt.verify(token, secret, (err, decoded) => {
         if (err) reject(err)
-        else resolve(decoded)
+        else resolve({
+          ...decoded,
+          _token: token
+        })
       })
     })
   }
