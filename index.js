@@ -47,7 +47,7 @@ module.exports = {
         if (err) reject(err)
         else {
           decoded._token = token
-          decoded._cookies = cookie
+          decoded._cookies = cookies
           resolve(decoded)
         }
       })

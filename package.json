@@ -1,6 +1,6 @@
 {
   "name": "cookie-token",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Create, serialize and parse cookie from JWT token",
   "main": "index.js",
   "scripts": {
